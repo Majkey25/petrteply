@@ -6,7 +6,7 @@
     <title>Petr Teply | Key Account Manager</title>
     <meta
       name="description"
-      content="Petr Teply is a Key Account Manager with more than 10 years of automotive experience supporting clients including Škoda, Seat, VW, and Audi across pricing, project management, budgets, and global coordination."
+      content="Petr Teply is a Key Account Manager and business development partner with 10+ years of experience. Built on automotive work with clients including Škoda, Seat, VW, and Audi, he supports industrial and commercial accounts across Europe and, selectively, worldwide."
     />
     <meta name="theme-color" content="#08111e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -447,13 +447,39 @@
         margin-top: 1rem;
       }
 
-      .profile-highlights span {
+      .icon-sprite {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .inline-icon {
+        width: 1rem;
+        height: 1rem;
+        flex: 0 0 auto;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.85;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .profile-highlights > span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
         padding: 0.48rem 0.8rem;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.03);
         color: var(--muted);
         font-size: 0.82rem;
+      }
+
+      .profile-highlights .inline-icon {
+        color: var(--accent-strong);
       }
 
       .link-inline {
@@ -630,7 +656,7 @@
 
       .visual-kicker,
       .region-lines span,
-      .detail-row span,
+      .detail-label-text,
       .focus-list-block h3 {
         color: var(--muted);
         font-size: 0.78rem;
@@ -768,7 +794,21 @@
       .service-index {
         grid-column: 1;
         grid-row: 1 / span 2;
-        padding-top: 0.1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.6rem;
+        height: 2.6rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.95rem;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--accent-strong);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      }
+
+      .service-index .inline-icon {
+        width: 1.05rem;
+        height: 1.05rem;
       }
 
       .service h3,
@@ -860,10 +900,117 @@
 
       .detail-row {
         display: grid;
-        grid-template-columns: 7rem 1fr;
+        grid-template-columns: 8.5rem minmax(0, 1fr);
         gap: 1rem;
         padding: 0.95rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        align-items: start;
+      }
+
+      .detail-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .detail-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.9rem;
+        height: 1.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.72rem;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent-strong);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      }
+
+      .detail-row strong {
+        display: block;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .contact-link-card {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 0.9rem;
+        width: min(100%, 22rem);
+        padding: 0.9rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 1rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          transform 0.28s ease,
+          border-color 0.28s ease,
+          background 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .contact-link-card:hover,
+      .contact-link-card:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(240, 165, 108, 0.22);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035));
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .contact-link-logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.8rem;
+        background: linear-gradient(135deg, #0a66c2, #1d82e7);
+        color: #f5fbff;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.96rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        box-shadow: 0 12px 24px rgba(10, 102, 194, 0.24);
+      }
+
+      .contact-link-logo .inline-icon {
+        width: 1rem;
+        height: 1rem;
+        stroke: currentColor;
+      }
+
+      .contact-link-card.is-phone .contact-link-logo {
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        box-shadow: 0 12px 24px rgba(217, 135, 79, 0.24);
+      }
+
+      .contact-link-copy {
+        display: grid;
+        gap: 0.12rem;
+      }
+
+      .contact-link-copy strong {
+        font-size: 0.96rem;
+        line-height: 1.2;
+      }
+
+      .contact-link-copy span {
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .contact-link-arrow {
+        color: var(--accent-strong);
+        font-size: 1rem;
+        transition: transform 0.28s ease;
+      }
+
+      .contact-link-card:hover .contact-link-arrow,
+      .contact-link-card:focus-visible .contact-link-arrow {
+        transform: translate(0.16rem, -0.16rem);
       }
 
       .site-footer {
@@ -963,6 +1110,7 @@
         .experience-item { grid-template-columns: 1fr; gap: 0.45rem; }
         .process-item { grid-template-columns: 1fr; gap: 0.35rem; }
         .detail-row { grid-template-columns: 1fr; gap: 0.35rem; }
+        .contact-link-card { width: 100%; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -973,6 +1121,49 @@
     </style>
   </head>
   <body>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="3.25"></circle>
+        <path d="M5.5 19c1.45-3.15 4.18-4.75 6.5-4.75S17.05 15.85 18.5 19"></path>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+        <path d="m5.5 7 6.5 5 6.5-5"></path>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M7.8 4.8h2.3l1.05 3.5-1.45 1.45a13.2 13.2 0 0 0 4.55 4.55l1.45-1.45 3.5 1.05v2.3a1.6 1.6 0 0 1-1.6 1.6c-6.75 0-12.2-5.45-12.2-12.2a1.6 1.6 0 0 1 1.6-1.6z"></path>
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24">
+        <path d="M10 14l4-4"></path>
+        <path d="M8.5 8.5H7a4 4 0 1 0 0 8h1.5"></path>
+        <path d="M15.5 8.5H17a4 4 0 1 1 0 8h-1.5"></path>
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 20s6-5.25 6-10a6 6 0 1 0-12 0c0 4.75 6 10 6 10z"></path>
+        <circle cx="12" cy="10" r="2.35"></circle>
+      </symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24">
+        <path d="M8 7V5.8c0-1 .8-1.8 1.8-1.8h4.4c1 0 1.8.8 1.8 1.8V7"></path>
+        <rect x="3" y="7" width="18" height="13" rx="3"></rect>
+        <path d="M3 11.5h18"></path>
+      </symbol>
+      <symbol id="icon-handshake" viewBox="0 0 24 24">
+        <path d="m4.5 11.5 3.1-3.1a2.3 2.3 0 0 1 3.2 0l1 1"></path>
+        <path d="m19.5 11.5-3.1-3.1a2.3 2.3 0 0 0-3.2 0l-.8.8"></path>
+        <path d="m9 12 2.2 2.2a2 2 0 0 0 2.8 0l2.6-2.6"></path>
+        <path d="m3 13 2.5 2.5"></path>
+        <path d="m21 13-2.5 2.5"></path>
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="M3.8 9.5h16.4"></path>
+        <path d="M3.8 14.5h16.4"></path>
+        <path d="M12 3.5c2.35 2.25 3.6 5.2 3.6 8.5S14.35 18.25 12 20.5c-2.35-2.25-3.6-5.2-3.6-8.5S9.65 5.75 12 3.5z"></path>
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="m12 4.5 1.8 4.3 4.2 1.7-4.2 1.7L12 16.5l-1.8-4.3L6 10.5l4.2-1.7z"></path>
+      </symbol>
+    </svg>
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#top" aria-label="Petr Teply home">
@@ -1011,10 +1202,10 @@
         <div class="container hero-layout">
           <div class="reveal is-visible">
             <p class="eyebrow" data-i18n="heroEyebrow">Petr Teply | Key Account Manager</p>
-            <h1 id="hero-title" data-i18n="heroTitle">Key account support for automotive partners.</h1>
+            <h1 id="hero-title" data-i18n="heroTitle">Commercial support across Europe.</h1>
             <p class="hero-copy" data-i18n="heroText">
-              Over 10 years in automotive supporting clients including Škoda, Seat, VW, and Audi across pricing, project management, budgets,
-              and coordination.
+              Built on strong automotive experience, but not limited to it. Petr supports industrial and business partners across Europe in
+              pricing, projects, market coordination, and long-term account development, with selective worldwide support.
             </p>
           </div>
 
@@ -1022,20 +1213,20 @@
             <div class="market-board">
               <div class="board-panel">
                 <div class="board-head">
-                  <span class="board-label" data-i18n="boardLabel">Client network</span>
-                  <span class="board-state" data-i18n="boardState">automotive accounts</span>
+                  <span class="board-label" data-i18n="boardLabel">Commercial scope</span>
+                  <span class="board-state" data-i18n="boardState">Europe-wide accounts</span>
                 </div>
 
                 <div class="network-layout">
                   <div class="network-column">
-                    <span class="network-caption" data-i18n="boardCol1">Accounts</span>
+                    <span class="network-caption" data-i18n="boardCol1">Background</span>
                     <div class="network-node">
-                      <strong data-i18n="boardNode1Title">Škoda, Seat, VW, Audi</strong>
-                      <span data-i18n="boardNode1Text">key customer support</span>
+                      <strong data-i18n="boardNode1Title">Automotive base</strong>
+                      <span data-i18n="boardNode1Text">Škoda, Seat, VW, Audi</span>
                     </div>
                     <div class="network-node">
-                      <strong data-i18n="boardNode2Title">Commercial topics</strong>
-                      <span data-i18n="boardNode2Text">pricing, budgets, negotiations</span>
+                      <strong data-i18n="boardNode2Title">Broader B2B reach</strong>
+                      <span data-i18n="boardNode2Text">industrial, commercial, growth support</span>
                     </div>
                   </div>
 
@@ -1043,19 +1234,19 @@
                     <span class="network-pulse"></span>
                     <div class="network-hub">
                       <strong data-i18n="boardHubTitle">Petr Teply</strong>
-                      <span data-i18n="boardHubText">local coordination</span>
+                      <span data-i18n="boardHubText">personal coordination</span>
                     </div>
                   </div>
 
                   <div class="network-column">
-                    <span class="network-caption" data-i18n="boardCol2">Markets</span>
+                    <span class="network-caption" data-i18n="boardCol2">Coverage</span>
                     <div class="network-node is-accent">
-                      <strong data-i18n="boardNode3Title">Czechia</strong>
-                      <span data-i18n="boardNode3Text">customer and project support</span>
+                      <strong data-i18n="boardNode3Title">Europe</strong>
+                      <span data-i18n="boardNode3Text">personal market support</span>
                     </div>
                     <div class="network-node is-accent">
-                      <strong data-i18n="boardNode4Title">Slovakia</strong>
-                      <span data-i18n="boardNode4Text">regional continuity</span>
+                      <strong data-i18n="boardNode4Title">Worldwide</strong>
+                      <span data-i18n="boardNode4Text">select international projects</span>
                     </div>
                   </div>
                 </div>
@@ -1078,10 +1269,10 @@
 
               <div class="visual-summary">
                 <span class="visual-kicker" data-i18n="visualKicker">Experience</span>
-                <div class="visual-big" data-i18n="visualBig">10+ yrs</div>
+                <div class="visual-big" data-i18n="visualBig">15+ yrs</div>
               </div>
               <p class="visual-text" data-i18n="visualText">
-                Key accounts, pricing, project management, and customer support in automotive.
+                Automotive background, broader industrial and commercial support across Europe.
               </p>
             </div>
           </div>
@@ -1098,22 +1289,32 @@
               <img class="profile-avatar" src="assets/profile.jfif" alt="Portrait of Petr Teply" />
               <div class="profile-summary">
                 <strong data-i18n="profileName">Petr Teply</strong>
-                <span data-i18n="profileRole">Key Account Manager | Automotive</span>
+                <span data-i18n="profileRole">Key Account Manager | Europe-wide business support</span>
               </div>
             </div>
             <p data-i18n="aboutText">
-              I am a Key Account Manager with over 10 years of experience in the automotive industry. I support key clients including Škoda,
-              Seat, VW, and Audi. My expertise lies in price negotiations, project management, budget preparation, and coordinating global
-              projects.
+              I am a Key Account Manager with over 15 years of experience, built largely in automotive. I support key clients including Škoda,
+              Seat, VW, and Audi, and today I also work with broader industrial and commercial partners on pricing, project coordination,
+              budgets, and account development.
             </p>
             <p data-i18n="aboutText2">
-              I am a native Czech speaker, fluent in business English, with negotiation capabilities in French and German. I am a results-driven
-              team player, eager to build new partnerships and foster collaborations.
+              I am a native Czech speaker, fluent in business English, with negotiation capabilities in French and German. I work personally
+              across Europe and can support selected opportunities worldwide. I am a results-driven team player, eager to build new partnerships
+              and foster collaborations.
             </p>
             <div class="profile-highlights">
-              <span data-i18n="aboutHighlight1">Native Czech, business English</span>
-              <span data-i18n="aboutHighlight2">French and German negotiation support</span>
-              <span data-i18n="aboutHighlight3">Results-driven team player</span>
+              <span>
+                <svg class="inline-icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
+                <span data-i18n="aboutHighlight1">🌍 Europe-wide personal support</span>
+              </span>
+              <span>
+                <svg class="inline-icon" aria-hidden="true"><use href="#icon-handshake"></use></svg>
+                <span data-i18n="aboutHighlight2">🤝 Open beyond automotive</span>
+              </span>
+              <span>
+                <svg class="inline-icon" aria-hidden="true"><use href="#icon-spark"></use></svg>
+                <span data-i18n="aboutHighlight3">⚡ Select worldwide projects</span>
+              </span>
             </div>
           </div>
         </div>
@@ -1124,24 +1325,30 @@
           <div>
             <h2 id="services-title" data-i18n="servicesTitle">Expertise.</h2>
           </div>
-          <p data-i18n="servicesText">Commercial and project support shaped by day-to-day work with key accounts.</p>
+          <p data-i18n="servicesText">Commercial and project support for automotive, industrial, and broader B2B accounts.</p>
         </div>
 
         <div class="container service-rail">
           <article class="service">
-            <span class="service-index">01</span>
+            <span class="service-index" aria-hidden="true">
+              <svg class="inline-icon"><use href="#icon-briefcase"></use></svg>
+            </span>
             <h3 data-i18n="service1Title">Key accounts</h3>
-            <p data-i18n="service1Text">Support for strategic clients including Škoda, Seat, VW, and Audi.</p>
+            <p data-i18n="service1Text">Support for strategic accounts in automotive and broader industrial or commercial sectors.</p>
           </article>
           <article class="service">
-            <span class="service-index">02</span>
+            <span class="service-index" aria-hidden="true">
+              <svg class="inline-icon"><use href="#icon-handshake"></use></svg>
+            </span>
             <h3 data-i18n="service2Title">Negotiation</h3>
-            <p data-i18n="service2Text">Price negotiations, budget preparation, and commercial alignment.</p>
+            <p data-i18n="service2Text">Price negotiations, budget preparation, commercial alignment, and business development.</p>
           </article>
           <article class="service">
-            <span class="service-index">03</span>
+            <span class="service-index" aria-hidden="true">
+              <svg class="inline-icon"><use href="#icon-globe"></use></svg>
+            </span>
             <h3 data-i18n="service3Title">Projects</h3>
-            <p data-i18n="service3Text">Project management and coordination across local and global teams.</p>
+            <p data-i18n="service3Text">Project management and coordination across local, European, and global teams.</p>
           </article>
         </div>
       </section>
@@ -1150,7 +1357,7 @@
           <div class="focus-copy">
             <h2 id="sectors-title" data-i18n="sectorsTitle">Experience.</h2>
             <p data-i18n="sectorsText">
-              L&L Products from 2007 to 2026 across customer management, sales, project leadership, and customer support, followed by freelance work.
+              Experience built at L&L Products from 2007 to 2026 and now extended through freelance support for broader B2B accounts across Europe.
             </p>
           </div>
 
@@ -1196,7 +1403,7 @@
           <div class="region-copy">
             <h2 id="region-title" data-i18n="regionTitle">Markets.</h2>
             <p data-i18n="regionText">
-              Responsible for the Czech and Slovak Republic, with local customer support and coordination across global projects.
+              Based in Central Europe, working personally across most of Europe and open to selected worldwide projects when the fit is right.
             </p>
           </div>
 
@@ -1212,14 +1419,14 @@
               <span class="process-number">02</span>
               <div class="process-copy">
                 <strong data-i18n="process2Title">Projects</strong>
-                <span data-i18n="process2Text">coordination across global teams</span>
+                  <span data-i18n="process2Text">coordination across European and global teams</span>
               </div>
             </div>
             <div class="process-item">
               <span class="process-number">03</span>
               <div class="process-copy">
                 <strong data-i18n="process3Title">Support</strong>
-                <span data-i18n="process3Text">customer follow-up and account continuity</span>
+                  <span data-i18n="process3Text">market follow-up and account continuity</span>
               </div>
             </div>
           </div>
@@ -1230,31 +1437,75 @@
         <div class="container contact-layout">
           <div class="contact-copy">
             <h2 id="contact-title" data-i18n="contactTitle">Contact.</h2>
-            <p data-i18n="contactText">You can reach me by email or on LinkedIn.</p>
+            <p data-i18n="contactText">You can reach me by phone, email, or on LinkedIn. Based in Czechia, available across Europe and open to selected worldwide work.</p>
           </div>
 
           <div class="contact-details">
             <div class="detail-row">
-              <span data-i18n="contactNameLabel">Name</span>
+              <span class="detail-label">
+                <span class="detail-icon" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-user"></use></svg>
+                </span>
+                <span class="detail-label-text" data-i18n="contactNameLabel">Name</span>
+              </span>
               <strong data-i18n="contactName">Petr Teply</strong>
             </div>
             <div class="detail-row">
-              <span data-i18n="contactEmailLabel">Email</span>
+              <span class="detail-label">
+                <span class="detail-icon" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-phone"></use></svg>
+                </span>
+                <span class="detail-label-text" data-i18n="contactPhoneLabel">Phone</span>
+              </span>
+              <a class="contact-link-card is-phone" href="tel:+420602696279">
+                <span class="contact-link-logo" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-phone"></use></svg>
+                </span>
+                <span class="contact-link-copy">
+                  <strong data-i18n="contactPhoneTitle">Call directly</strong>
+                  <span data-i18n="contactPhone">+420 602 696 279</span>
+                </span>
+                <span class="contact-link-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">
+                <span class="detail-icon" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-mail"></use></svg>
+                </span>
+                <span class="detail-label-text" data-i18n="contactEmailLabel">Email</span>
+              </span>
               <strong>petr.teply25@gmail.com</strong>
             </div>
             <div class="detail-row">
-              <span data-i18n="contactLinkedInLabel">LinkedIn</span>
+              <span class="detail-label">
+                <span class="detail-icon" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-link"></use></svg>
+                </span>
+                <span class="detail-label-text" data-i18n="contactLinkedInLabel">LinkedIn</span>
+              </span>
               <a
-                class="link-inline"
+                class="contact-link-card"
                 href="https://www.linkedin.com/in/petr-teply-63b69326/"
                 target="_blank"
                 rel="noreferrer"
-                data-i18n="contactLinkedIn"
-                >linkedin.com/in/petr-teply-63b69326</a
+              >
+                <span class="contact-link-logo" aria-hidden="true">in</span>
+                <span class="contact-link-copy">
+                  <strong data-i18n="contactLinkedInTitle">LinkedIn profile</strong>
+                  <span data-i18n="contactLinkedIn">@petr-teply-63b69326</span>
+                </span>
+                <span class="contact-link-arrow" aria-hidden="true">↗</span>
+              </a
               >
             </div>
             <div class="detail-row">
-              <span data-i18n="contactAddressLabel">Address</span>
+              <span class="detail-label">
+                <span class="detail-icon" aria-hidden="true">
+                  <svg class="inline-icon"><use href="#icon-pin"></use></svg>
+                </span>
+                <span class="detail-label-text" data-i18n="contactAddressLabel">Address</span>
+              </span>
               <strong data-i18n="contactAddress">Legionářů 21, 695 01 Hodonín, Czech Republic</strong>
             </div>
           </div>
@@ -1264,7 +1515,7 @@
 
     <footer class="site-footer">
       <div class="container footer-layout">
-        <p data-i18n="footerText">Key account and project support for automotive clients in Czechia and Slovakia.</p>
+        <p data-i18n="footerText">Commercial, account, and project support across Europe, with selective worldwide collaboration.</p>
         <p><span data-i18n="footerBusinessLabel">Business ID:</span> <span data-i18n="footerBusinessValue">63446715</span></p>
       </div>
     </footer>
@@ -1287,7 +1538,7 @@
       const czechCopy = {
         pageTitle: "Petr Teply | Key Account Manager",
         metaDescription:
-          "Petr Teply je Key Account Manager s více než 10 lety zkušeností v automotive. Podporuje klienty jako Škoda, Seat, VW a Audi v oblasti vyjednávání cen, projektového řízení, rozpočtů a koordinace globálních projektů.",
+          "Petr Teply je Key Account Manager a obchodní partner s více než 10 lety zkušeností. Staví na automotive praxi s klienty jako Škoda, Seat, VW a Audi, ale podporuje i průmyslové a obchodní účty napříč Evropou a výběrově i celosvětově.",
         languageLabel: "Přepínač jazyka",
         brandTag: "Key Account Manager",
         navAbout: "O mně",
@@ -1297,31 +1548,31 @@
         navContact: "Kontakt",
         navCta: "Spojit se",
         heroEyebrow: "Petr Teply | Key Account Manager",
-        heroTitle: "Podpora klíčových účtů v automotive.",
+        heroTitle: "Obchodní podpora napříč Evropou.",
         heroText:
-          "Více než 10 let v automotive s podporou klientů jako Škoda, Seat, VW a Audi v oblasti cen, projektů, rozpočtů a koordinace.",
+          "Stojí na silné automotive zkušenosti, ale není jí omezený. Podporuje průmyslové a business partnery napříč Evropou v oblasti cen, projektů, koordinace trhů a rozvoje zákaznických účtů, výběrově i worldwide.",
         heroPrimary: "Kontakt pro obchodní poptávky",
         heroSecondary: "Zobrazit služby",
         tag1: "Podpora Tier 1 dodavatelů",
         tag2: "Pokrytí trhu ČR / SR",
         tag3: "Spolehlivá obchodní návaznost",
         visualKicker: "Zkušenosti",
-        visualBig: "10+ let",
-        visualText: "Klíčové účty, ceny, projektové řízení a zákaznická podpora v automotive.",
-        boardLabel: "Síť klientů",
-        boardState: "automotive účty",
-        boardCol1: "Klienti",
-        boardNode1Title: "Škoda, Seat, VW, Audi",
-        boardNode1Text: "podpora klíčových zákazníků",
-        boardNode2Title: "Komerční témata",
-        boardNode2Text: "ceny, rozpočty, vyjednávání",
+        visualBig: "15+ let",
+        visualText: "Automotive základ, širší průmyslová a obchodní podpora napříč Evropou.",
+        boardLabel: "Obchodní záběr",
+        boardState: "evropské účty",
+        boardCol1: "Základ",
+        boardNode1Title: "Automotive základ",
+        boardNode1Text: "Škoda, Seat, VW, Audi",
+        boardNode2Title: "Širší B2B dosah",
+        boardNode2Text: "průmysl, obchod, růstová podpora",
         boardHubTitle: "Petr Teply",
-        boardHubText: "lokální koordinace",
-        boardCol2: "Trhy",
-        boardNode3Title: "Česko",
-        boardNode3Text: "podpora zákazníků a projektů",
-        boardNode4Title: "Slovensko",
-        boardNode4Text: "regionální kontinuita",
+        boardHubText: "osobní koordinace",
+        boardCol2: "Pokrytí",
+        boardNode3Title: "Evropa",
+        boardNode3Text: "osobní podpora trhů",
+        boardNode4Title: "Worldwide",
+        boardNode4Text: "výběrové mezinárodní projekty",
         signal1Title: "Ceny",
         signal1Text: "vyjednávání a rozpočty",
         signal2Title: "Projekty",
@@ -1334,14 +1585,14 @@
         aboutLabel: "O mně",
         aboutTitle: "O mně.",
         aboutText:
-          "Jsem Key Account Manager s více než 10 lety zkušeností v automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi. Specializuji se na vyjednávání cen, projektové řízení, přípravu rozpočtů a koordinaci globálních projektů.",
+          "Jsem Key Account Manager s více než 10 lety zkušeností, postavených hlavně na automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi a dnes pracuji i s širšími průmyslovými a obchodními partnery v oblasti cen, projektové koordinace, rozpočtů a rozvoje účtů.",
         aboutText2:
-          "Jsem rodilý mluvčí češtiny, plynně ovládám business English a mám vyjednávací zkušenosti ve francouzštině a němčině. Jsem výsledkově orientovaný týmový hráč, který rád buduje nová partnerství a spolupráce.",
+          "Jsem rodilý mluvčí češtiny, plynně ovládám business English a mám vyjednávací zkušenosti ve francouzštině a němčině. Pracuji osobně napříč Evropou a při správném fitu mohu podpořit i vybrané příležitosti worldwide. Jsem výsledkově orientovaný týmový hráč, který rád buduje nová partnerství a spolupráce.",
         profileName: "Petr Teply",
-        profileRole: "Key Account Manager | Automotive",
-        aboutHighlight1: "Rodilý mluvčí češtiny, business English",
-        aboutHighlight2: "Vyjednávání ve francouzštině a němčině",
-        aboutHighlight3: "Výsledkově orientovaný týmový hráč",
+        profileRole: "Key Account Manager | Obchodní podpora napříč Evropou",
+        aboutHighlight1: "🌍 Osobní podpora napříč Evropou",
+        aboutHighlight2: "🤝 Otevřenost i mimo automotive",
+        aboutHighlight3: "⚡ Výběrové worldwide projekty",
         aboutAction: "Prozkoumat podporu",
         proof1Value: "ČR + SR",
         proof1Label: "Hlavní obchodní teritorium",
@@ -1351,17 +1602,17 @@
         proof3Label: "Pouze průmyslové zastoupení",
         servicesLabel: "Specializace",
         servicesTitle: "Specializace.",
-        servicesText: "Obchodní a projektová podpora postavená na každodenní práci s klíčovými účty.",
+        servicesText: "Obchodní a projektová podpora pro automotive, průmyslové i širší B2B účty.",
         service1Title: "Klíčové účty",
-        service1Text: "Podpora strategických klientů včetně Škoda, Seat, VW a Audi.",
+        service1Text: "Podpora strategických účtů v automotive i v širších průmyslových nebo obchodních segmentech.",
         service2Title: "Vyjednávání",
-        service2Text: "Vyjednávání cen, příprava rozpočtů a komerční sladění.",
+        service2Text: "Vyjednávání cen, příprava rozpočtů, komerční sladění a business development.",
         service3Title: "Projekty",
-        service3Text: "Projektové řízení a koordinace mezi lokálními i globálními týmy.",
+        service3Text: "Projektové řízení a koordinace mezi lokálními, evropskými i globálními týmy.",
         sectorsLabel: "Zkušenosti",
         sectorsTitle: "Zkušenosti.",
         sectorsText:
-          "L&L Products v letech 2007 až 2026 v oblasti customer managementu, sales, projektového vedení a customer supportu, následně freelance spolupráce.",
+          "Zkušenosti vybudované v L&L Products mezi lety 2007 až 2026 a dnes rozšířené o freelance podporu širších B2B účtů napříč Evropou.",
         sectorsListTitle: "Ideální klienti",
         sectorsItem1: "Tier 1 dodavatelé v automotive a průmyslových řetězcích",
         sectorsItem2: "Firmy, které potřebují pomoc s otevřením nebo rozvojem zákaznických účtů",
@@ -1389,29 +1640,33 @@
         regionLabel: "Trhy",
         regionTitle: "Trhy.",
         regionText:
-          "Odpovědnost za Českou a Slovenskou republiku, lokální podporu zákazníků a koordinaci napříč globálními projekty.",
+          "Zázemí ve střední Evropě, osobní práce napříč většinou Evropy a otevřenost pro vybrané worldwide projekty, když dává spolupráce smysl.",
         process1Title: "Ceny",
         process1Text: "vyjednávání cen a příprava rozpočtů",
         process2Title: "Projekty",
-        process2Text: "koordinace mezi globálními týmy",
+        process2Text: "koordinace mezi evropskými i globálními týmy",
         process3Title: "Podpora",
-        process3Text: "follow-up a kontinuita zákaznických účtů",
+        process3Text: "market follow-up a kontinuita zákaznických účtů",
         regionPoint1: "Obchodní most pro vztahy v ČR / SR",
         regionPoint2: "Lokální kontext, tón komunikace a načasování",
         regionPoint3: "Konzistentní zastoupení od prvního oslovení po dlouhodobou podporu",
         contactLabel: "Kontakt",
         contactTitle: "Kontakt.",
-        contactText: "Ozvat se můžete e-mailem nebo přes LinkedIn.",
+        contactText: "Ozvat se můžete telefonicky, e-mailem nebo přes LinkedIn. Základna je v Česku, ale dostupnost je napříč Evropou a výběrově i worldwide.",
         contactPrimary: "Napsat Petru Teplému",
         contactSecondary: "Zpět nahoru",
         contactNameLabel: "Jméno",
         contactName: "Petr Teply",
+        contactPhoneLabel: "Telefon",
+        contactPhoneTitle: "Volat přímo",
+        contactPhone: "+420 602 696 279",
         contactEmailLabel: "E-mail",
         contactLinkedInLabel: "LinkedIn",
-        contactLinkedIn: "linkedin.com/in/petr-teply-63b69326",
+        contactLinkedInTitle: "LinkedIn profil",
+        contactLinkedIn: "@petr-teply-63b69326",
         contactAddressLabel: "Adresa",
         contactAddress: "Legionářů 21, 695 01 Hodonín, Česká republika",
-        footerText: "Key account a projektová podpora pro automotive klienty v Česku a na Slovensku.",
+        footerText: "Obchodní, klientská a projektová podpora napříč Evropou, s výběrovou worldwide spoluprací.",
         footerBusinessLabel: "IČO:",
         footerBusinessValue: "63446715",
       };
