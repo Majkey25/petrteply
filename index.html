@@ -6,7 +6,7 @@
     <title>Petr Teply | Key Account Manager</title>
     <meta
       name="description"
-      content="Petr Teply is a Key Account Manager and business development partner with 10+ years of experience. Built on automotive work with clients including Škoda, Seat, VW, and Audi, he supports industrial and commercial accounts across Europe and, selectively, worldwide."
+      content="Petr Teply is a Key Account Manager and business development partner with 15+ years of experience. Built on automotive work with clients including Škoda, Seat, VW, and Audi, he supports industrial and commercial accounts across Europe and, selectively, worldwide."
     />
     <meta name="theme-color" content="#08111e" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,6 +97,8 @@
         background: rgba(5, 10, 19, 0.72);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         backdrop-filter: blur(18px);
+        transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease;
+        will-change: transform;
       }
 
       .nav {
@@ -183,16 +185,6 @@
       .nav-links a:focus-visible::after {
         transform: scaleX(1);
       }
-      .language-switch {
-        display: inline-flex;
-        gap: 0.25rem;
-        padding: 0.25rem;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .lang-button,
       .button {
         border-radius: 999px;
         transition:
@@ -200,21 +192,6 @@
           background 0.28s ease,
           border-color 0.28s ease,
           box-shadow 0.28s ease;
-      }
-
-      .lang-button {
-        min-width: 3rem;
-        border: 0;
-        padding: 0.55rem 0.9rem;
-        background: transparent;
-        color: var(--muted);
-        cursor: pointer;
-      }
-
-      .lang-button.is-active {
-        color: var(--text);
-        background: var(--accent-soft);
-        box-shadow: inset 0 0 0 1px rgba(240, 165, 108, 0.24);
       }
 
       .button {
@@ -249,9 +226,7 @@
       }
 
       .button:hover,
-      .button:focus-visible,
-      .lang-button:hover,
-      .lang-button:focus-visible {
+      .button:focus-visible {
         transform: translateY(-2px);
       }
 
@@ -781,7 +756,7 @@
         grid-template-columns: 1fr;
         gap: 1.6rem;
         margin-top: 2rem;
-        max-width: 48rem;
+        max-width: none;
       }
 
       .service {
@@ -1088,6 +1063,7 @@
         .network-center { width: 100%; justify-items: start; }
         .network-center::before, .network-center::after { display: none; }
         .network-hub { text-align: left; }
+        .site-header.is-hidden { transform: translateY(calc(-100% - 0.5rem)); }
       }
 
       @media (max-width: 640px) {
@@ -1182,12 +1158,6 @@
           <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
 
-        <div class="nav-tools">
-          <div class="language-switch" role="group" aria-label="Language selector">
-            <button class="lang-button is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button class="lang-button" type="button" data-lang="cz" aria-pressed="false">CZ</button>
-          </div>
-        </div>
       </div>
     </header>
 
@@ -1305,15 +1275,15 @@
             <div class="profile-highlights">
               <span>
                 <svg class="inline-icon" aria-hidden="true"><use href="#icon-globe"></use></svg>
-                <span data-i18n="aboutHighlight1">🌍 Europe-wide personal support</span>
+                <span data-i18n="aboutHighlight1"> Europe-wide personal support</span>
               </span>
               <span>
                 <svg class="inline-icon" aria-hidden="true"><use href="#icon-handshake"></use></svg>
-                <span data-i18n="aboutHighlight2">🤝 Open beyond automotive</span>
+                <span data-i18n="aboutHighlight2"> Open beyond automotive</span>
               </span>
               <span>
                 <svg class="inline-icon" aria-hidden="true"><use href="#icon-spark"></use></svg>
-                <span data-i18n="aboutHighlight3">⚡ Select worldwide projects</span>
+                <span data-i18n="aboutHighlight3"> Select worldwide projects</span>
               </span>
             </div>
           </div>
@@ -1538,7 +1508,7 @@
       const czechCopy = {
         pageTitle: "Petr Teply | Key Account Manager",
         metaDescription:
-          "Petr Teply je Key Account Manager a obchodní partner s více než 10 lety zkušeností. Staví na automotive praxi s klienty jako Škoda, Seat, VW a Audi, ale podporuje i průmyslové a obchodní účty napříč Evropou a výběrově i celosvětově.",
+          "Petr Teply je Key Account Manager a obchodní partner s více než 15 lety zkušeností. Staví na automotive praxi s klienty jako Škoda, Seat, VW a Audi, ale podporuje i průmyslové a obchodní účty napříč Evropou a výběrově i celosvětově.",
         languageLabel: "Přepínač jazyka",
         brandTag: "Key Account Manager",
         navAbout: "O mně",
@@ -1585,7 +1555,7 @@
         aboutLabel: "O mně",
         aboutTitle: "O mně.",
         aboutText:
-          "Jsem Key Account Manager s více než 10 lety zkušeností, postavených hlavně na automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi a dnes pracuji i s širšími průmyslovými a obchodními partnery v oblasti cen, projektové koordinace, rozpočtů a rozvoje účtů.",
+          "Jsem Key Account Manager s více než 15 lety zkušeností, postavených hlavně na automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi a dnes pracuji i s širšími průmyslovými a obchodními partnery v oblasti cen, projektové koordinace, rozpočtů a rozvoje účtů.",
         aboutText2:
           "Jsem rodilý mluvčí češtiny, plynně ovládám business English a mám vyjednávací zkušenosti ve francouzštině a němčině. Pracuji osobně napříč Evropou a při správném fitu mohu podpořit i vybrané příležitosti worldwide. Jsem výsledkově orientovaný týmový hráč, který rád buduje nová partnerství a spolupráce.",
         profileName: "Petr Teply",
@@ -1672,6 +1642,8 @@
       };
 
       const copyByLanguage = { en: englishCopy, cz: czechCopy };
+      const siteHeader = document.querySelector(".site-header");
+      const mobileHeaderMedia = window.matchMedia("(max-width: 920px)");
 
       function setLanguage(lang) {
         const safeLanguage = copyByLanguage[lang] ? lang : "en";
@@ -1732,6 +1704,55 @@
 
         revealNodes.forEach((node) => observer.observe(node));
       }
+
+      let lastScrollY = window.scrollY;
+      let headerTicking = false;
+
+      function updateMobileHeaderVisibility() {
+        headerTicking = false;
+
+        if (!siteHeader) {
+          return;
+        }
+
+        if (!mobileHeaderMedia.matches) {
+          siteHeader.classList.remove("is-hidden");
+          lastScrollY = window.scrollY;
+          return;
+        }
+
+        const currentScrollY = window.scrollY;
+        const scrollingDown = currentScrollY > lastScrollY + 6;
+        const scrollingUp = currentScrollY < lastScrollY - 6;
+
+        if (currentScrollY <= 24 || scrollingUp) {
+          siteHeader.classList.remove("is-hidden");
+        } else if (scrollingDown) {
+          siteHeader.classList.add("is-hidden");
+        }
+
+        lastScrollY = currentScrollY;
+      }
+
+      function requestMobileHeaderVisibilityUpdate() {
+        if (headerTicking) {
+          return;
+        }
+
+        headerTicking = true;
+        window.requestAnimationFrame(updateMobileHeaderVisibility);
+      }
+
+      window.addEventListener("scroll", requestMobileHeaderVisibilityUpdate, { passive: true });
+      window.addEventListener("resize", updateMobileHeaderVisibility);
+
+      if (typeof mobileHeaderMedia.addEventListener === "function") {
+        mobileHeaderMedia.addEventListener("change", updateMobileHeaderVisibility);
+      } else if (typeof mobileHeaderMedia.addListener === "function") {
+        mobileHeaderMedia.addListener(updateMobileHeaderVisibility);
+      }
+
+      updateMobileHeaderVisibility();
     </script>
   </body>
 </html>
