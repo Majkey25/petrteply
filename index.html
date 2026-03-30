@@ -3,19 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Petr Teplý | Commercial Representation & Business Development</title>
+    <title>Petr Teply | Key Account Manager</title>
     <meta
       name="description"
-      content="Petr Teplý provides commercial representation and business development support for B2B industrial clients, with a focus on Tier 1 suppliers in the Škoda/VW supply chain in the Czech Republic and Slovakia."
+      content="Petr Teply is a Key Account Manager with more than 10 years of automotive experience supporting clients including Škoda, Seat, VW, and Audi across pricing, project management, budgets, and global coordination."
     />
+    <meta name="theme-color" content="#08111e" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <style>
       :root {
-        --bg: #f8fafc;
-        --surface: #ffffff;
-        --text: #0f172a;
-        --muted: #475569;
-        --line: #dbe3ee;
-        --accent: #1d4f91;
+        --text: #f4efe7;
+        --muted: #9daac0;
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #d9874f;
+        --accent-strong: #f0a56c;
+        --accent-soft: rgba(217, 135, 79, 0.18);
+        --max-width: 1160px;
+        --header-height: 86px;
       }
 
       * {
@@ -28,274 +40,1443 @@
 
       body {
         margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        background: var(--bg);
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: "Manrope", "Segoe UI", sans-serif;
         color: var(--text);
-        line-height: 1.6;
+        background:
+          radial-gradient(circle at top right, rgba(217, 135, 79, 0.16), transparent 28rem),
+          radial-gradient(circle at bottom left, rgba(66, 104, 163, 0.16), transparent 24rem),
+          linear-gradient(180deg, #07101d 0%, #0b1626 55%, #091321 100%);
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        width: 28rem;
+        height: 28rem;
+        border-radius: 50%;
+        filter: blur(26px);
+        opacity: 0.45;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      body::before {
+        top: -8rem;
+        right: -10rem;
+        background: rgba(217, 135, 79, 0.16);
+        animation: drift 16s ease-in-out infinite;
+      }
+
+      body::after {
+        bottom: -12rem;
+        left: -10rem;
+        background: rgba(70, 102, 148, 0.14);
+        animation: drift 20s ease-in-out infinite reverse;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button {
+        font: inherit;
       }
 
       .container {
-        width: min(100%, 980px);
+        width: min(100% - 2.5rem, var(--max-width));
         margin: 0 auto;
-        padding: 0 1.25rem;
       }
 
-      header {
-        background: var(--surface);
-        border-bottom: 1px solid var(--line);
+      .site-header {
         position: sticky;
         top: 0;
+        z-index: 1000;
+        background: rgba(5, 10, 19, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(18px);
       }
 
-      nav {
-        min-height: 64px;
+      .nav {
+        min-height: var(--header-height);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.25rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.9rem;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand-mark {
+        display: inline-block;
+        flex-shrink: 0;
+        width: 2.85rem;
+        height: 2.85rem;
+        border-radius: 50%;
+        background:
+          linear-gradient(180deg, rgba(8, 17, 30, 0.08), rgba(8, 17, 30, 0.22)),
+          url("assets/profile.jfif") center / cover no-repeat;
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+          0 0 40px rgba(217, 135, 79, 0.28);
+      }
+
+      .brand-copy {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-copy strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.05rem;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .nav-links,
+      .nav-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 1.15rem;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 0.2rem;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.96rem;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        transition: transform 0.28s ease;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+      .language-switch {
+        display: inline-flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .lang-button,
+      .button {
+        border-radius: 999px;
+        transition:
+          transform 0.28s ease,
+          background 0.28s ease,
+          border-color 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .lang-button {
+        min-width: 3rem;
+        border: 0;
+        padding: 0.55rem 0.9rem;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .lang-button.is-active {
+        color: var(--text);
+        background: var(--accent-soft);
+        box-shadow: inset 0 0 0 1px rgba(240, 165, 108, 0.24);
+      }
+
+      .button {
+        --button-bg: transparent;
+        --button-color: var(--text);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.2rem;
+        padding: 0.9rem 1.35rem;
+        border: 1px solid transparent;
+        background: var(--button-bg);
+        color: var(--button-color);
+        font-weight: 700;
+        text-decoration: none;
+        overflow: hidden;
+      }
+
+      .button::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.24) 35%, transparent 70%);
+        transform: translateX(-125%);
+        transition: transform 0.75s ease;
+      }
+
+      .button:hover::before,
+      .button:focus-visible::before {
+        transform: translateX(140%);
+      }
+
+      .button:hover,
+      .button:focus-visible,
+      .lang-button:hover,
+      .lang-button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        --button-bg: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        --button-color: #08111e;
+      }
+
+      .button-secondary {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .hero {
+        position: relative;
+        min-height: calc(100svh - var(--header-height));
+        padding: 3.25rem 0 4.5rem;
+        overflow: clip;
+      }
+
+      .hero-backdrop,
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .hero-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(20px);
+        opacity: 0.7;
+      }
+
+      .hero-glow.one {
+        top: 6%;
+        right: -6rem;
+        width: 24rem;
+        height: 24rem;
+        background: rgba(217, 135, 79, 0.18);
+        animation: drift 14s ease-in-out infinite;
+      }
+
+      .hero-glow.two {
+        bottom: 6%;
+        left: -5rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(71, 102, 152, 0.22);
+        animation: drift 18s ease-in-out infinite reverse;
+      }
+
+      .hero-grid {
+        inset: 8% 4%;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 6rem 6rem;
+        mask-image: radial-gradient(circle at center, #000 42%, transparent 82%);
+        opacity: 0.12;
+        animation: float-grid 24s linear infinite;
+      }
+
+      .hero-layout,
+      .section-grid,
+      .section-heading,
+      .focus-layout,
+      .region-layout,
+      .contact-layout {
+        position: relative;
+        display: grid;
+        gap: 1.4rem;
+      }
+
+      .hero-layout {
+        z-index: 1;
+        grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .eyebrow,
+      .tag {
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.55rem 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+      }
+
+      .eyebrow::before,
+      .clean-list li::before {
+        content: "";
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(217, 135, 79, 0.66);
+      }
+
+      .eyebrow::before {
+        width: 0.55rem;
+        height: 0.55rem;
+      }
+      .hero h1,
+      h2,
+      .service h3,
+      .metric-value,
+      .visual-big,
+      .brand-copy strong {
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: -0.05em;
+      }
+
+      .hero h1 {
+        margin: 1.25rem 0 0;
+        font-size: clamp(3rem, 6vw, 6.15rem);
+        line-height: 0.98;
+        max-width: 11ch;
+      }
+
+      .hero-copy,
+      .section-copy,
+      .section-heading p,
+      .focus-copy p,
+      .region-copy p,
+      .contact-copy p,
+      .service p,
+      .visual-text {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.03rem;
+      }
+
+      .hero-copy,
+      .visual-text,
+      .section-copy p,
+      .focus-copy p,
+      .region-copy p,
+      .contact-copy p,
+      .service p {
+        margin: 1rem 0 0;
+        max-width: 42rem;
+      }
+
+      .section-heading p {
+        margin: 0;
+      }
+
+      .profile-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .profile-avatar {
+        width: 5.5rem;
+        height: 5.5rem;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+      }
+
+      .profile-summary strong {
+        display: block;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1rem;
+        line-height: 1.15;
+      }
+
+      .profile-summary span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .profile-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1rem;
+      }
+
+      .profile-highlights span {
+        padding: 0.48rem 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .link-inline {
+        color: var(--accent-strong);
+        text-decoration: none;
+      }
+
+      .link-inline:hover,
+      .link-inline:focus-visible {
+        color: var(--text);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 29rem;
+        display: grid;
+        align-items: center;
+      }
+
+      .market-board {
+        position: relative;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .market-board::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        right: 1rem;
+        width: 9rem;
+        height: 9rem;
+        border-radius: 50%;
+        background: rgba(217, 135, 79, 0.16);
+        filter: blur(42px);
+        z-index: 0;
+      }
+
+      .board-panel,
+      .board-signals,
+      .process-track {
+        position: relative;
+        z-index: 1;
+      }
+
+      .board-panel {
+        padding: 1.35rem;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 1.5rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .board-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
+        margin-bottom: 1.1rem;
+        padding-bottom: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      .brand {
-        font-weight: 700;
-        letter-spacing: 0.02em;
-      }
-
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem 1rem;
-      }
-
-      .nav-links a {
+      .board-label,
+      .board-state,
+      .network-caption {
         color: var(--muted);
-        text-decoration: none;
-        font-size: 0.95rem;
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
       }
 
-      .nav-links a:hover,
-      .nav-links a:focus-visible {
-        color: var(--accent);
-      }
-
-      main section {
-        padding: 3.5rem 0;
-      }
-
-      .hero {
-        padding-top: 4.5rem;
-      }
-
-      h1,
-      h2 {
-        line-height: 1.25;
-        margin: 0 0 0.9rem;
-      }
-
-      h1 {
-        font-size: clamp(1.8rem, 2.6vw, 2.5rem);
-        max-width: 22ch;
-      }
-
-      h2 {
-        font-size: clamp(1.3rem, 2vw, 1.7rem);
-      }
-
-      p {
-        margin: 0 0 1rem;
-        max-width: 72ch;
-      }
-
-      .subheadline {
-        color: var(--muted);
-        font-size: 1.08rem;
-      }
-
-      .cta {
-        display: inline-block;
-        margin-top: 0.75rem;
-        background: var(--accent);
-        color: #fff;
-        text-decoration: none;
-        padding: 0.75rem 1.15rem;
-        border-radius: 0.5rem;
-        font-weight: 600;
-      }
-
-      .cta:hover,
-      .cta:focus-visible {
-        background: #183f74;
-      }
-
-      .card-grid {
+      .network-layout {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
         gap: 1rem;
+        align-items: center;
       }
 
-      .card {
-        background: var(--surface);
+      .network-column {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .network-node {
+        min-height: 4.75rem;
+        padding: 0.9rem 1rem;
         border: 1px solid var(--line);
-        border-radius: 0.7rem;
-        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.3rem;
       }
 
-      .card h3 {
-        margin: 0 0 0.4rem;
-        font-size: 1.05rem;
+      .network-node strong,
+      .signal-card strong,
+      .process-copy strong {
+        display: block;
+        font-size: 0.98rem;
+        line-height: 1.2;
       }
 
-      .muted {
+      .network-node span,
+      .signal-card span,
+      .process-copy span {
         color: var(--muted);
+        font-size: 0.83rem;
+        line-height: 1.45;
       }
 
-      .split {
+      .network-node.is-accent {
+        background: linear-gradient(135deg, rgba(217, 135, 79, 0.14), rgba(255, 255, 255, 0.03));
+        border-color: rgba(240, 165, 108, 0.18);
+      }
+
+      .network-center {
+        position: relative;
+        width: 8.2rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 0.8rem;
+      }
+
+      .network-center::before,
+      .network-center::after {
+        content: "";
+        position: absolute;
+        top: 2.1rem;
+        width: 3.2rem;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(240, 165, 108, 0.45));
+      }
+
+      .network-center::before {
+        right: 100%;
+      }
+
+      .network-center::after {
+        left: 100%;
+      }
+
+      .network-pulse {
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 20px rgba(217, 135, 79, 0.78);
+        animation: pulse 3.2s ease-in-out infinite;
+      }
+
+      .network-hub {
+        width: 100%;
+        padding: 0.95rem 0.85rem;
+        border: 1px solid rgba(240, 165, 108, 0.26);
+        border-radius: 1.2rem;
+        background: rgba(255, 255, 255, 0.04);
+        text-align: center;
+      }
+
+      .board-signals {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .signal-card {
+        padding: 0.85rem 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .visual-kicker,
+      .region-lines span,
+      .detail-row span,
+      .focus-list-block h3 {
+        color: var(--muted);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .visual-summary {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0 0.2rem;
+      }
+
+      .visual-big {
+        font-size: clamp(2.4rem, 4vw, 3.8rem);
+        line-height: 0.92;
+      }
+
+      .region-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+        align-items: start;
+      }
+
+      .process-track {
+        padding-left: 1.5rem;
+        display: grid;
         gap: 1rem;
       }
 
-      .contact-list {
-        list-style: none;
-        padding: 0;
+      .process-track::before {
+        content: "";
+        position: absolute;
+        left: 0.35rem;
+        top: 0.7rem;
+        bottom: 0.7rem;
+        width: 1px;
+        background: linear-gradient(180deg, rgba(240, 165, 108, 0.18), rgba(255, 255, 255, 0.1));
+      }
+
+      .process-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3.2rem 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .process-item::before {
+        content: "";
+        position: absolute;
+        left: -1.5rem;
+        top: 0.45rem;
+        width: 0.78rem;
+        height: 0.78rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(217, 135, 79, 0.7);
+      }
+
+      .process-number {
+        color: var(--accent-strong);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.96rem;
+        letter-spacing: 0.08em;
+      }
+
+      .section {
+        padding: 4.5rem 0;
+      }
+
+      .section + .section,
+      .site-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .section-label {
+        margin: 0 0 0.95rem;
+        color: var(--accent-strong);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+        line-height: 0.98;
+        max-width: 13ch;
+      }
+
+      .metric-value {
+        display: block;
+        font-size: clamp(1.9rem, 3.1vw, 3rem);
+        line-height: 1;
+      }
+
+      .service h3 {
+        margin: 1rem 0 0.85rem;
+        font-size: 1.45rem;
+        line-height: 1.08;
+      }
+
+      .service-rail,
+      .focus-list,
+      .region-lines {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .service,
+      .focus-list-block,
+      .region-lines span,
+      .contact-details {
+        border-top: 1px solid var(--line);
+      }
+
+      .service,
+      .focus-list-block {
+        padding-top: 1rem;
+      }
+
+      .service-rail {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+        margin-top: 2rem;
+        max-width: 48rem;
+      }
+
+      .service {
+        display: grid;
+        grid-template-columns: 2.6rem 1fr;
+        column-gap: 1.2rem;
+        align-items: start;
+      }
+
+      .service-index {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        padding-top: 0.1rem;
+      }
+
+      .service h3,
+      .service p {
+        grid-column: 2;
+      }
+
+      .service h3 {
         margin: 0;
       }
 
-      .contact-list li {
-        margin-bottom: 0.7rem;
+      .service p {
+        margin-top: 0.45rem;
       }
 
-      .contact-list a {
-        color: var(--accent);
+      .focus-list {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        max-width: 44rem;
       }
 
-      footer {
+      .experience-list {
+        display: grid;
+        gap: 1rem;
+        max-width: 46rem;
+      }
+
+      .experience-item {
+        display: grid;
+        grid-template-columns: 8rem 1fr;
+        gap: 1rem;
+        padding-top: 1rem;
         border-top: 1px solid var(--line);
-        background: var(--surface);
-        padding: 1.3rem 0 2rem;
-        font-size: 0.95rem;
+      }
+
+      .experience-period {
+        color: var(--accent-strong);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.84rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .experience-copy strong {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      .experience-copy span {
+        display: block;
+        margin-top: 0.28rem;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .experience-copy p {
+        margin: 0.5rem 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .clean-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .clean-list li {
+        position: relative;
+        padding-left: 1.3rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .clean-list li::before {
+        position: absolute;
+        top: 0.72rem;
+        left: 0;
+        width: 0.52rem;
+        height: 0.52rem;
+      }
+
+      .contact-details {
+        max-width: 44rem;
+      }
+
+      .detail-row {
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        gap: 1rem;
+        padding: 0.95rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .site-footer {
+        padding: 2rem 0 2.7rem;
+        background: rgba(4, 9, 17, 0.55);
+      }
+
+      .footer-layout {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-layout p {
+        margin: 0;
         color: var(--muted);
       }
 
-      @media (max-width: 720px) {
-        nav {
-          align-items: flex-start;
-          flex-direction: column;
-          justify-content: center;
-          padding: 0.75rem 0;
-        }
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(2rem);
+        transition: opacity 0.72s ease, transform 0.72s ease;
+      }
 
-        .split {
-          grid-template-columns: 1fr;
-        }
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .js .delay-1 {
+        transition-delay: 0.12s;
+      }
+
+      .js .delay-2 {
+        transition-delay: 0.22s;
+      }
+
+      @keyframes drift {
+        0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+        50% { transform: translate3d(1.5rem, -1rem, 0) scale(1.04); }
+      }
+
+      @keyframes float-grid {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-2rem, -2rem, 0); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.08); }
+      }
+
+      @keyframes spin {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+
+      @media (max-width: 920px) {
+        .nav,
+        .hero-layout,
+        .section-grid,
+        .section-heading,
+        .focus-layout,
+        .region-layout,
+        .contact-layout,
+        .service-rail,
+        .focus-list { grid-template-columns: 1fr; }
+        .nav { min-height: auto; padding: 1rem 0; flex-wrap: wrap; }
+        .nav-links { width: 100%; justify-content: flex-start; }
+        .hero-visual { min-height: auto; }
+        .hero-grid { display: none; }
+        .board-signals { grid-template-columns: 1fr; }
+        .network-layout { grid-template-columns: 1fr; }
+        .network-center { width: 100%; justify-items: start; }
+        .network-center::before, .network-center::after { display: none; }
+        .network-hub { text-align: left; }
+      }
+
+      @media (max-width: 640px) {
+        .container { width: min(100% - 1.5rem, var(--max-width)); }
+        .nav-tools, .button { width: 100%; }
+        .nav-tools { justify-content: flex-start; }
+        .brand-copy span,
+        .section-label,
+        .visual-kicker { letter-spacing: 0.1em; }
+        .hero { padding: 2.2rem 0 3.5rem; }
+        .hero h1 { max-width: 12ch; font-size: clamp(2.3rem, 12vw, 3.6rem); }
+        .board-panel { padding: 1rem; }
+        .visual-summary { flex-direction: column; align-items: flex-start; gap: 0.45rem; }
+        .section { padding: 3.6rem 0; }
+        .profile-card { align-items: flex-start; }
+        .service { grid-template-columns: 1fr; }
+        .service-index,
+        .service h3,
+        .service p { grid-column: auto; grid-row: auto; }
+        .experience-item { grid-template-columns: 1fr; gap: 0.45rem; }
+        .process-item { grid-template-columns: 1fr; gap: 0.35rem; }
+        .detail-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+        .js .reveal { opacity: 1; transform: none; }
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <nav aria-label="Main navigation">
-          <div class="brand">Petr Teplý</div>
-          <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#clients">Who We Work With</a>
-            <a href="#geography">Geographic Focus</a>
-            <a href="#contact">Contact</a>
-          </div>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Petr Teply home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            <strong>Petr Teply</strong>
+            <span data-i18n="brandTag">Key Account Manager</span>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#services" data-i18n="navServices">Expertise</a>
+          <a href="#sectors" data-i18n="navSectors">Experience</a>
+          <a href="#region" data-i18n="navRegion">Markets</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
         </nav>
+
+        <div class="nav-tools">
+          <div class="language-switch" role="group" aria-label="Language selector">
+            <button class="lang-button is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button class="lang-button" type="button" data-lang="cz" aria-pressed="false">CZ</button>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="container">
-          <h1 id="hero-title">Commercial Representation & Business Development for B2B Industrial Companies</h1>
-          <p class="subheadline">
-            Petr Teplý provides practical client acquisition, market development, and ongoing business support for Tier 1 suppliers in the
-            Škoda / VW automotive supply chain.
-          </p>
-          <a class="cta" href="#contact">Contact for Business Enquiries</a>
+        <div class="hero-backdrop" aria-hidden="true">
+          <div class="hero-glow one"></div>
+          <div class="hero-glow two"></div>
+          <div class="hero-grid"></div>
         </div>
-      </section>
 
-      <section id="about" aria-labelledby="about-title">
-        <div class="container">
-          <h2 id="about-title">About</h2>
-          <p>
-            This business provides commercial representation and business development support for B2B industrial clients. The focus is on helping
-            suppliers establish and grow reliable business relationships, with clear communication and consistent follow-through.
-          </p>
-        </div>
-      </section>
+        <div class="container hero-layout">
+          <div class="reveal is-visible">
+            <p class="eyebrow" data-i18n="heroEyebrow">Petr Teply | Key Account Manager</p>
+            <h1 id="hero-title" data-i18n="heroTitle">Key account support for automotive partners.</h1>
+            <p class="hero-copy" data-i18n="heroText">
+              Over 10 years in automotive supporting clients including Škoda, Seat, VW, and Audi across pricing, project management, budgets,
+              and coordination.
+            </p>
+          </div>
 
-      <section id="services" aria-labelledby="services-title">
-        <div class="container">
-          <h2 id="services-title">Services</h2>
-          <div class="card-grid">
-            <article class="card">
-              <h3>Client Acquisition Support</h3>
-              <p class="muted">Identification of relevant opportunities, communication support, and structured outreach for B2B customers.</p>
-            </article>
-            <article class="card">
-              <h3>Market Development</h3>
-              <p class="muted">Practical support for entering or expanding in target market segments in the Czech Republic and Slovakia.</p>
-            </article>
-            <article class="card">
-              <h3>Ongoing Business Support</h3>
-              <p class="muted">Day-to-day commercial coordination and continuity support for established B2B business relationships.</p>
-            </article>
+          <div class="hero-visual reveal is-visible delay-1" aria-hidden="true">
+            <div class="market-board">
+              <div class="board-panel">
+                <div class="board-head">
+                  <span class="board-label" data-i18n="boardLabel">Client network</span>
+                  <span class="board-state" data-i18n="boardState">automotive accounts</span>
+                </div>
+
+                <div class="network-layout">
+                  <div class="network-column">
+                    <span class="network-caption" data-i18n="boardCol1">Accounts</span>
+                    <div class="network-node">
+                      <strong data-i18n="boardNode1Title">Škoda, Seat, VW, Audi</strong>
+                      <span data-i18n="boardNode1Text">key customer support</span>
+                    </div>
+                    <div class="network-node">
+                      <strong data-i18n="boardNode2Title">Commercial topics</strong>
+                      <span data-i18n="boardNode2Text">pricing, budgets, negotiations</span>
+                    </div>
+                  </div>
+
+                  <div class="network-center">
+                    <span class="network-pulse"></span>
+                    <div class="network-hub">
+                      <strong data-i18n="boardHubTitle">Petr Teply</strong>
+                      <span data-i18n="boardHubText">local coordination</span>
+                    </div>
+                  </div>
+
+                  <div class="network-column">
+                    <span class="network-caption" data-i18n="boardCol2">Markets</span>
+                    <div class="network-node is-accent">
+                      <strong data-i18n="boardNode3Title">Czechia</strong>
+                      <span data-i18n="boardNode3Text">customer and project support</span>
+                    </div>
+                    <div class="network-node is-accent">
+                      <strong data-i18n="boardNode4Title">Slovakia</strong>
+                      <span data-i18n="boardNode4Text">regional continuity</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="board-signals">
+                <div class="signal-card">
+                  <strong data-i18n="signal1Title">Pricing</strong>
+                  <span data-i18n="signal1Text">negotiations and budgets</span>
+                </div>
+                <div class="signal-card">
+                  <strong data-i18n="signal2Title">Projects</strong>
+                  <span data-i18n="signal2Text">global coordination</span>
+                </div>
+                <div class="signal-card">
+                  <strong data-i18n="signal3Title">Support</strong>
+                  <span data-i18n="signal3Text">account continuity</span>
+                </div>
+              </div>
+
+              <div class="visual-summary">
+                <span class="visual-kicker" data-i18n="visualKicker">Experience</span>
+                <div class="visual-big" data-i18n="visualBig">10+ yrs</div>
+              </div>
+              <p class="visual-text" data-i18n="visualText">
+                Key accounts, pricing, project management, and customer support in automotive.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="clients" aria-labelledby="clients-title">
-        <div class="container">
-          <h2 id="clients-title">Who We Work With</h2>
-          <p>
-            Services are intended for B2B companies operating in industrial and automotive supply chains, including Tier 1 suppliers connected to
-            the Škoda / VW ecosystem.
-          </p>
-        </div>
-      </section>
-
-      <section id="geography" aria-labelledby="geography-title">
-        <div class="container split">
+      <section id="about" class="section reveal" aria-labelledby="about-title">
+        <div class="container section-grid">
           <div>
-            <h2 id="geography-title">Geographic Focus</h2>
-            <p>
-              Primary operating markets are the Czech Republic and Slovakia. Support is aligned with local business practices and cross-border B2B
-              cooperation between these two markets.
-            </p>
+            <h2 id="about-title" data-i18n="aboutTitle">About.</h2>
           </div>
-          <div class="card" role="note" aria-label="Business scope summary">
-            <h3>Business Scope</h3>
-            <p class="muted">
-              One core activity: commercial representation and business development support for B2B industrial clients.
+          <div class="section-copy">
+            <div class="profile-card">
+              <img class="profile-avatar" src="assets/profile.jfif" alt="Portrait of Petr Teply" />
+              <div class="profile-summary">
+                <strong data-i18n="profileName">Petr Teply</strong>
+                <span data-i18n="profileRole">Key Account Manager | Automotive</span>
+              </div>
+            </div>
+            <p data-i18n="aboutText">
+              I am a Key Account Manager with over 10 years of experience in the automotive industry. I support key clients including Škoda,
+              Seat, VW, and Audi. My expertise lies in price negotiations, project management, budget preparation, and coordinating global
+              projects.
             </p>
+            <p data-i18n="aboutText2">
+              I am a native Czech speaker, fluent in business English, with negotiation capabilities in French and German. I am a results-driven
+              team player, eager to build new partnerships and foster collaborations.
+            </p>
+            <div class="profile-highlights">
+              <span data-i18n="aboutHighlight1">Native Czech, business English</span>
+              <span data-i18n="aboutHighlight2">French and German negotiation support</span>
+              <span data-i18n="aboutHighlight3">Results-driven team player</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" aria-labelledby="contact-title">
-        <div class="container">
-          <h2 id="contact-title">Contact</h2>
-          <ul class="contact-list">
-            <li><strong>Name:</strong> Petr Teplý</li>
-            <li><strong>Email:</strong> <a href="mailto:petr.teply25@gmail.com">petr.teply25@gmail.com</a></li>
-            <li><strong>Address:</strong> Legionářů 21, 69501 Hodonín, Czech Republic</li>
-          </ul>
+      <section id="services" class="section reveal delay-1" aria-labelledby="services-title">
+        <div class="container section-heading">
+          <div>
+            <h2 id="services-title" data-i18n="servicesTitle">Expertise.</h2>
+          </div>
+          <p data-i18n="servicesText">Commercial and project support shaped by day-to-day work with key accounts.</p>
+        </div>
+
+        <div class="container service-rail">
+          <article class="service">
+            <span class="service-index">01</span>
+            <h3 data-i18n="service1Title">Key accounts</h3>
+            <p data-i18n="service1Text">Support for strategic clients including Škoda, Seat, VW, and Audi.</p>
+          </article>
+          <article class="service">
+            <span class="service-index">02</span>
+            <h3 data-i18n="service2Title">Negotiation</h3>
+            <p data-i18n="service2Text">Price negotiations, budget preparation, and commercial alignment.</p>
+          </article>
+          <article class="service">
+            <span class="service-index">03</span>
+            <h3 data-i18n="service3Title">Projects</h3>
+            <p data-i18n="service3Text">Project management and coordination across local and global teams.</p>
+          </article>
+        </div>
+      </section>
+      <section id="sectors" class="section reveal delay-1" aria-labelledby="sectors-title">
+        <div class="container focus-layout">
+          <div class="focus-copy">
+            <h2 id="sectors-title" data-i18n="sectorsTitle">Experience.</h2>
+            <p data-i18n="sectorsText">
+              L&L Products from 2007 to 2026 across customer management, sales, project leadership, and customer support, followed by freelance work.
+            </p>
+          </div>
+
+          <div class="experience-list">
+            <article class="experience-item">
+              <span class="experience-period" data-i18n="exp1Period">2007 - 2012</span>
+              <div class="experience-copy">
+                <strong data-i18n="exp1Title">Customer Support Engineer</strong>
+                <span data-i18n="exp1Org">L&L Products</span>
+                <p data-i18n="exp1Text">Responsible for customer support in the Czech and Slovak Republic.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <span class="experience-period" data-i18n="exp2Period">2012 - 2015</span>
+              <div class="experience-copy">
+                <strong data-i18n="exp2Title">Sales &amp; Project Manager for Škoda</strong>
+                <span data-i18n="exp2Org">L&amp;L Products | Czechia</span>
+                <p data-i18n="exp2Text">Sales support, project coordination, and commercial management for Škoda-related programs.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <span class="experience-period" data-i18n="exp3Period">2015 - 2026</span>
+              <div class="experience-copy">
+                <strong data-i18n="exp3Title">Customer Manager for VW Group</strong>
+                <span data-i18n="exp3Org">L&amp;L Products</span>
+                <p data-i18n="exp3Text">Customer management for VW Group accounts with ongoing sales and account support.</p>
+              </div>
+            </article>
+            <article class="experience-item">
+              <span class="experience-period" data-i18n="exp4Period">2026 - Present</span>
+              <div class="experience-copy">
+                <strong data-i18n="exp4Title">Freelance</strong>
+                <span data-i18n="exp4Org">Independent</span>
+                <p data-i18n="exp4Text">Independent commercial support, business development, and account coordination for industrial clients.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="region" class="section reveal delay-2" aria-labelledby="region-title">
+        <div class="container region-layout">
+          <div class="region-copy">
+            <h2 id="region-title" data-i18n="regionTitle">Markets.</h2>
+            <p data-i18n="regionText">
+              Responsible for the Czech and Slovak Republic, with local customer support and coordination across global projects.
+            </p>
+          </div>
+
+          <div class="process-track">
+            <div class="process-item">
+              <span class="process-number">01</span>
+              <div class="process-copy">
+                <strong data-i18n="process1Title">Pricing</strong>
+                <span data-i18n="process1Text">price negotiations and budget preparation</span>
+              </div>
+            </div>
+            <div class="process-item">
+              <span class="process-number">02</span>
+              <div class="process-copy">
+                <strong data-i18n="process2Title">Projects</strong>
+                <span data-i18n="process2Text">coordination across global teams</span>
+              </div>
+            </div>
+            <div class="process-item">
+              <span class="process-number">03</span>
+              <div class="process-copy">
+                <strong data-i18n="process3Title">Support</strong>
+                <span data-i18n="process3Text">customer follow-up and account continuity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal delay-2" aria-labelledby="contact-title">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <h2 id="contact-title" data-i18n="contactTitle">Contact.</h2>
+            <p data-i18n="contactText">You can reach me by email or on LinkedIn.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="detail-row">
+              <span data-i18n="contactNameLabel">Name</span>
+              <strong data-i18n="contactName">Petr Teply</strong>
+            </div>
+            <div class="detail-row">
+              <span data-i18n="contactEmailLabel">Email</span>
+              <strong>petr.teply25@gmail.com</strong>
+            </div>
+            <div class="detail-row">
+              <span data-i18n="contactLinkedInLabel">LinkedIn</span>
+              <a
+                class="link-inline"
+                href="https://www.linkedin.com/in/petr-teply-63b69326/"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="contactLinkedIn"
+                >linkedin.com/in/petr-teply-63b69326</a
+              >
+            </div>
+            <div class="detail-row">
+              <span data-i18n="contactAddressLabel">Address</span>
+              <strong data-i18n="contactAddress">Legionářů 21, 695 01 Hodonín, Czech Republic</strong>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="container">
-        <p>
-          Petr Teplý — Commercial representation and business development support for B2B industrial clients.<br />
-          IČO: 63446715 · Legionářů 21, 69501 Hodonín, Czech Republic ·
-          <a href="mailto:petr.teply25@gmail.com">petr.teply25@gmail.com</a>
-        </p>
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <p data-i18n="footerText">Key account and project support for automotive clients in Czechia and Slovakia.</p>
+        <p><span data-i18n="footerBusinessLabel">Business ID:</span> <span data-i18n="footerBusinessValue">63446715</span></p>
       </div>
     </footer>
+    <script>
+      const metaDescription = document.querySelector('meta[name="description"]');
+      const languageSwitch = document.querySelector(".language-switch");
+      const langButtons = document.querySelectorAll(".lang-button");
+      const i18nNodes = document.querySelectorAll("[data-i18n]");
+
+      const englishCopy = {
+        pageTitle: document.title,
+        metaDescription: metaDescription.getAttribute("content"),
+        languageLabel: "Language selector",
+      };
+
+      i18nNodes.forEach((node) => {
+        englishCopy[node.dataset.i18n] = node.textContent.replace(/\s+/g, " ").trim();
+      });
+
+      const czechCopy = {
+        pageTitle: "Petr Teply | Key Account Manager",
+        metaDescription:
+          "Petr Teply je Key Account Manager s více než 10 lety zkušeností v automotive. Podporuje klienty jako Škoda, Seat, VW a Audi v oblasti vyjednávání cen, projektového řízení, rozpočtů a koordinace globálních projektů.",
+        languageLabel: "Přepínač jazyka",
+        brandTag: "Key Account Manager",
+        navAbout: "O mně",
+        navServices: "Specializace",
+        navSectors: "Zkušenosti",
+        navRegion: "Trhy",
+        navContact: "Kontakt",
+        navCta: "Spojit se",
+        heroEyebrow: "Petr Teply | Key Account Manager",
+        heroTitle: "Podpora klíčových účtů v automotive.",
+        heroText:
+          "Více než 10 let v automotive s podporou klientů jako Škoda, Seat, VW a Audi v oblasti cen, projektů, rozpočtů a koordinace.",
+        heroPrimary: "Kontakt pro obchodní poptávky",
+        heroSecondary: "Zobrazit služby",
+        tag1: "Podpora Tier 1 dodavatelů",
+        tag2: "Pokrytí trhu ČR / SR",
+        tag3: "Spolehlivá obchodní návaznost",
+        visualKicker: "Zkušenosti",
+        visualBig: "10+ let",
+        visualText: "Klíčové účty, ceny, projektové řízení a zákaznická podpora v automotive.",
+        boardLabel: "Síť klientů",
+        boardState: "automotive účty",
+        boardCol1: "Klienti",
+        boardNode1Title: "Škoda, Seat, VW, Audi",
+        boardNode1Text: "podpora klíčových zákazníků",
+        boardNode2Title: "Komerční témata",
+        boardNode2Text: "ceny, rozpočty, vyjednávání",
+        boardHubTitle: "Petr Teply",
+        boardHubText: "lokální koordinace",
+        boardCol2: "Trhy",
+        boardNode3Title: "Česko",
+        boardNode3Text: "podpora zákazníků a projektů",
+        boardNode4Title: "Slovensko",
+        boardNode4Text: "regionální kontinuita",
+        signal1Title: "Ceny",
+        signal1Text: "vyjednávání a rozpočty",
+        signal2Title: "Projekty",
+        signal2Text: "globální koordinace",
+        signal3Title: "Podpora",
+        signal3Text: "kontinuita účtů",
+        visualPoint1: "Kontext Tier 1",
+        visualPoint2: "Přeshraniční koordinace",
+        visualPoint3: "Podpora business developmentu",
+        aboutLabel: "O mně",
+        aboutTitle: "O mně.",
+        aboutText:
+          "Jsem Key Account Manager s více než 10 lety zkušeností v automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi. Specializuji se na vyjednávání cen, projektové řízení, přípravu rozpočtů a koordinaci globálních projektů.",
+        aboutText2:
+          "Jsem rodilý mluvčí češtiny, plynně ovládám business English a mám vyjednávací zkušenosti ve francouzštině a němčině. Jsem výsledkově orientovaný týmový hráč, který rád buduje nová partnerství a spolupráce.",
+        profileName: "Petr Teply",
+        profileRole: "Key Account Manager | Automotive",
+        aboutHighlight1: "Rodilý mluvčí češtiny, business English",
+        aboutHighlight2: "Vyjednávání ve francouzštině a němčině",
+        aboutHighlight3: "Výsledkově orientovaný týmový hráč",
+        aboutAction: "Prozkoumat podporu",
+        proof1Value: "ČR + SR",
+        proof1Label: "Hlavní obchodní teritorium",
+        proof2Value: "Tier 1",
+        proof2Label: "Znalost automotive dodavatelského řetězce",
+        proof3Value: "B2B",
+        proof3Label: "Pouze průmyslové zastoupení",
+        servicesLabel: "Specializace",
+        servicesTitle: "Specializace.",
+        servicesText: "Obchodní a projektová podpora postavená na každodenní práci s klíčovými účty.",
+        service1Title: "Klíčové účty",
+        service1Text: "Podpora strategických klientů včetně Škoda, Seat, VW a Audi.",
+        service2Title: "Vyjednávání",
+        service2Text: "Vyjednávání cen, příprava rozpočtů a komerční sladění.",
+        service3Title: "Projekty",
+        service3Text: "Projektové řízení a koordinace mezi lokálními i globálními týmy.",
+        sectorsLabel: "Zkušenosti",
+        sectorsTitle: "Zkušenosti.",
+        sectorsText:
+          "L&L Products v letech 2007 až 2026 v oblasti customer managementu, sales, projektového vedení a customer supportu, následně freelance spolupráce.",
+        sectorsListTitle: "Ideální klienti",
+        sectorsItem1: "Tier 1 dodavatelé v automotive a průmyslových řetězcích",
+        sectorsItem2: "Firmy, které potřebují pomoc s otevřením nebo rozvojem zákaznických účtů",
+        sectorsItem3: "Týmy, které chtějí lokální komunikaci bez budování celé obchodní vrstvy v dané zemi",
+        exp1Period: "2007 - 2012",
+        exp1Title: "Customer Support Engineer",
+        exp1Org: "L&L Products",
+        exp1Text: "Odpovědnost za zákaznickou podporu pro Českou a Slovenskou republiku.",
+        exp2Period: "2012 - 2015",
+        exp2Title: "Sales & Project Manager pro Škoda",
+        exp2Org: "L&L Products | Česko",
+        exp2Text: "Obchodní podpora, projektová koordinace a komerční řízení programů spojených se Škoda.",
+        exp3Period: "2015 - 2026",
+        exp3Title: "Customer Manager pro VW Group",
+        exp3Org: "L&L Products",
+        exp3Text: "Customer management pro účty skupiny VW s průběžnou obchodní a account podporou.",
+        exp4Period: "2026 - současnost",
+        exp4Title: "Freelance",
+        exp4Org: "Nezávisle",
+        exp4Text: "Nezávislá obchodní podpora, business development a koordinace zákaznických účtů pro průmyslové klienty.",
+        regionListTitle: "Styl spolupráce",
+        regionItem1: "Rychlý follow-up s jasnými dalšími kroky",
+        regionItem2: "Lokální kontinuita napříč českými a slovenskými jednáními",
+        regionItem3: "Strukturovaná podpora pro dlouhé B2B rozhodovací cykly",
+        regionLabel: "Trhy",
+        regionTitle: "Trhy.",
+        regionText:
+          "Odpovědnost za Českou a Slovenskou republiku, lokální podporu zákazníků a koordinaci napříč globálními projekty.",
+        process1Title: "Ceny",
+        process1Text: "vyjednávání cen a příprava rozpočtů",
+        process2Title: "Projekty",
+        process2Text: "koordinace mezi globálními týmy",
+        process3Title: "Podpora",
+        process3Text: "follow-up a kontinuita zákaznických účtů",
+        regionPoint1: "Obchodní most pro vztahy v ČR / SR",
+        regionPoint2: "Lokální kontext, tón komunikace a načasování",
+        regionPoint3: "Konzistentní zastoupení od prvního oslovení po dlouhodobou podporu",
+        contactLabel: "Kontakt",
+        contactTitle: "Kontakt.",
+        contactText: "Ozvat se můžete e-mailem nebo přes LinkedIn.",
+        contactPrimary: "Napsat Petru Teplému",
+        contactSecondary: "Zpět nahoru",
+        contactNameLabel: "Jméno",
+        contactName: "Petr Teply",
+        contactEmailLabel: "E-mail",
+        contactLinkedInLabel: "LinkedIn",
+        contactLinkedIn: "linkedin.com/in/petr-teply-63b69326",
+        contactAddressLabel: "Adresa",
+        contactAddress: "Legionářů 21, 695 01 Hodonín, Česká republika",
+        footerText: "Key account a projektová podpora pro automotive klienty v Česku a na Slovensku.",
+        footerBusinessLabel: "IČO:",
+        footerBusinessValue: "63446715",
+      };
+
+      const copyByLanguage = { en: englishCopy, cz: czechCopy };
+
+      function setLanguage(lang) {
+        const safeLanguage = copyByLanguage[lang] ? lang : "en";
+        const strings = copyByLanguage[safeLanguage];
+
+        document.documentElement.lang = safeLanguage === "cz" ? "cs" : "en";
+        document.title = strings.pageTitle;
+        metaDescription.setAttribute("content", strings.metaDescription);
+        languageSwitch.setAttribute("aria-label", strings.languageLabel);
+
+        i18nNodes.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (strings[key]) {
+            node.textContent = strings[key];
+          }
+        });
+
+        langButtons.forEach((button) => {
+          const active = button.dataset.lang === safeLanguage;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        try {
+          window.localStorage.setItem("preferredLanguage", safeLanguage);
+        } catch (error) {
+          console.warn("Language preference could not be saved.", error);
+        }
+      }
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      try {
+        setLanguage(window.localStorage.getItem("preferredLanguage") || "en");
+      } catch (error) {
+        setLanguage("en");
+      }
+
+      const revealNodes = document.querySelectorAll(".reveal");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        revealNodes.forEach((node) => node.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        revealNodes.forEach((node) => observer.observe(node));
+      }
+    </script>
   </body>
 </html>
