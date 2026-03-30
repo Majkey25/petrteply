@@ -28,6 +28,7 @@
         --accent-soft: rgba(217, 135, 79, 0.18);
         --max-width: 1160px;
         --header-height: 86px;
+        --mobile-header-offset: 0px;
       }
 
       * {
@@ -1044,6 +1045,12 @@
       }
 
       @media (max-width: 920px) {
+        .site-header {
+          position: fixed;
+          left: 0;
+          right: 0;
+        }
+        main { padding-top: var(--mobile-header-offset); }
         .nav,
         .hero-layout,
         .section-grid,
@@ -1514,6 +1521,17 @@
       let lastScrollY = window.scrollY;
       let headerTicking = false;
 
+      function syncMobileHeaderOffset() {
+        if (!siteHeader) {
+          return;
+        }
+
+        document.documentElement.style.setProperty(
+          "--mobile-header-offset",
+          mobileHeaderMedia.matches ? `${siteHeader.offsetHeight}px` : "0px"
+        );
+      }
+
       function updateMobileHeaderVisibility() {
         headerTicking = false;
 
@@ -1540,6 +1558,11 @@
         lastScrollY = currentScrollY;
       }
 
+      function handleMobileHeaderLayout() {
+        syncMobileHeaderOffset();
+        updateMobileHeaderVisibility();
+      }
+
       function requestMobileHeaderVisibilityUpdate() {
         if (headerTicking) {
           return;
@@ -1550,15 +1573,20 @@
       }
 
       window.addEventListener("scroll", requestMobileHeaderVisibilityUpdate, { passive: true });
-      window.addEventListener("resize", updateMobileHeaderVisibility);
+      window.addEventListener("resize", handleMobileHeaderLayout);
+      window.addEventListener("load", syncMobileHeaderOffset);
 
       if (typeof mobileHeaderMedia.addEventListener === "function") {
-        mobileHeaderMedia.addEventListener("change", updateMobileHeaderVisibility);
+        mobileHeaderMedia.addEventListener("change", handleMobileHeaderLayout);
       } else if (typeof mobileHeaderMedia.addListener === "function") {
-        mobileHeaderMedia.addListener(updateMobileHeaderVisibility);
+        mobileHeaderMedia.addListener(handleMobileHeaderLayout);
       }
 
-      updateMobileHeaderVisibility();
+      if (typeof ResizeObserver === "function" && siteHeader) {
+        new ResizeObserver(syncMobileHeaderOffset).observe(siteHeader);
+      }
+
+      handleMobileHeaderLayout();
     </script>
   </body>
 </html>
