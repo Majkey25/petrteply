@@ -148,8 +148,7 @@
         letter-spacing: 0.18em;
       }
 
-      .nav-links,
-      .nav-tools {
+      .nav-links {
         display: flex;
         flex-wrap: wrap;
         gap: 0.9rem;
@@ -1068,8 +1067,6 @@
 
       @media (max-width: 640px) {
         .container { width: min(100% - 1.5rem, var(--max-width)); }
-        .nav-tools, .button { width: 100%; }
-        .nav-tools { justify-content: flex-start; }
         .brand-copy span,
         .section-label,
         .visual-kicker { letter-spacing: 0.1em; }
@@ -1490,199 +1487,8 @@
       </div>
     </footer>
     <script>
-      const metaDescription = document.querySelector('meta[name="description"]');
-      const languageSwitch = document.querySelector(".language-switch");
-      const langButtons = document.querySelectorAll(".lang-button");
-      const i18nNodes = document.querySelectorAll("[data-i18n]");
-
-      const englishCopy = {
-        pageTitle: document.title,
-        metaDescription: metaDescription.getAttribute("content"),
-        languageLabel: "Language selector",
-      };
-
-      i18nNodes.forEach((node) => {
-        englishCopy[node.dataset.i18n] = node.textContent.replace(/\s+/g, " ").trim();
-      });
-
-      const czechCopy = {
-        pageTitle: "Petr Teply | Key Account Manager",
-        metaDescription:
-          "Petr Teply je Key Account Manager a obchodní partner s více než 15 lety zkušeností. Staví na automotive praxi s klienty jako Škoda, Seat, VW a Audi, ale podporuje i průmyslové a obchodní účty napříč Evropou a výběrově i celosvětově.",
-        languageLabel: "Přepínač jazyka",
-        brandTag: "Key Account Manager",
-        navAbout: "O mně",
-        navServices: "Specializace",
-        navSectors: "Zkušenosti",
-        navRegion: "Trhy",
-        navContact: "Kontakt",
-        navCta: "Spojit se",
-        heroEyebrow: "Petr Teply | Key Account Manager",
-        heroTitle: "Obchodní podpora napříč Evropou.",
-        heroText:
-          "Stojí na silné automotive zkušenosti, ale není jí omezený. Podporuje průmyslové a business partnery napříč Evropou v oblasti cen, projektů, koordinace trhů a rozvoje zákaznických účtů, výběrově i worldwide.",
-        heroPrimary: "Kontakt pro obchodní poptávky",
-        heroSecondary: "Zobrazit služby",
-        tag1: "Podpora Tier 1 dodavatelů",
-        tag2: "Pokrytí trhu ČR / SR",
-        tag3: "Spolehlivá obchodní návaznost",
-        visualKicker: "Zkušenosti",
-        visualBig: "15+ let",
-        visualText: "Automotive základ, širší průmyslová a obchodní podpora napříč Evropou.",
-        boardLabel: "Obchodní záběr",
-        boardState: "evropské účty",
-        boardCol1: "Základ",
-        boardNode1Title: "Automotive základ",
-        boardNode1Text: "Škoda, Seat, VW, Audi",
-        boardNode2Title: "Širší B2B dosah",
-        boardNode2Text: "průmysl, obchod, růstová podpora",
-        boardHubTitle: "Petr Teply",
-        boardHubText: "osobní koordinace",
-        boardCol2: "Pokrytí",
-        boardNode3Title: "Evropa",
-        boardNode3Text: "osobní podpora trhů",
-        boardNode4Title: "Worldwide",
-        boardNode4Text: "výběrové mezinárodní projekty",
-        signal1Title: "Ceny",
-        signal1Text: "vyjednávání a rozpočty",
-        signal2Title: "Projekty",
-        signal2Text: "globální koordinace",
-        signal3Title: "Podpora",
-        signal3Text: "kontinuita účtů",
-        visualPoint1: "Kontext Tier 1",
-        visualPoint2: "Přeshraniční koordinace",
-        visualPoint3: "Podpora business developmentu",
-        aboutLabel: "O mně",
-        aboutTitle: "O mně.",
-        aboutText:
-          "Jsem Key Account Manager s více než 15 lety zkušeností, postavených hlavně na automotive. Podporuji klíčové klienty včetně Škoda, Seat, VW a Audi a dnes pracuji i s širšími průmyslovými a obchodními partnery v oblasti cen, projektové koordinace, rozpočtů a rozvoje účtů.",
-        aboutText2:
-          "Jsem rodilý mluvčí češtiny, plynně ovládám business English a mám vyjednávací zkušenosti ve francouzštině a němčině. Pracuji osobně napříč Evropou a při správném fitu mohu podpořit i vybrané příležitosti worldwide. Jsem výsledkově orientovaný týmový hráč, který rád buduje nová partnerství a spolupráce.",
-        profileName: "Petr Teply",
-        profileRole: "Key Account Manager | Obchodní podpora napříč Evropou",
-        aboutHighlight1: "🌍 Osobní podpora napříč Evropou",
-        aboutHighlight2: "🤝 Otevřenost i mimo automotive",
-        aboutHighlight3: "⚡ Výběrové worldwide projekty",
-        aboutAction: "Prozkoumat podporu",
-        proof1Value: "ČR + SR",
-        proof1Label: "Hlavní obchodní teritorium",
-        proof2Value: "Tier 1",
-        proof2Label: "Znalost automotive dodavatelského řetězce",
-        proof3Value: "B2B",
-        proof3Label: "Pouze průmyslové zastoupení",
-        servicesLabel: "Specializace",
-        servicesTitle: "Specializace.",
-        servicesText: "Obchodní a projektová podpora pro automotive, průmyslové i širší B2B účty.",
-        service1Title: "Klíčové účty",
-        service1Text: "Podpora strategických účtů v automotive i v širších průmyslových nebo obchodních segmentech.",
-        service2Title: "Vyjednávání",
-        service2Text: "Vyjednávání cen, příprava rozpočtů, komerční sladění a business development.",
-        service3Title: "Projekty",
-        service3Text: "Projektové řízení a koordinace mezi lokálními, evropskými i globálními týmy.",
-        sectorsLabel: "Zkušenosti",
-        sectorsTitle: "Zkušenosti.",
-        sectorsText:
-          "Zkušenosti vybudované v L&L Products mezi lety 2007 až 2026 a dnes rozšířené o freelance podporu širších B2B účtů napříč Evropou.",
-        sectorsListTitle: "Ideální klienti",
-        sectorsItem1: "Tier 1 dodavatelé v automotive a průmyslových řetězcích",
-        sectorsItem2: "Firmy, které potřebují pomoc s otevřením nebo rozvojem zákaznických účtů",
-        sectorsItem3: "Týmy, které chtějí lokální komunikaci bez budování celé obchodní vrstvy v dané zemi",
-        exp1Period: "2007 - 2012",
-        exp1Title: "Customer Support Engineer",
-        exp1Org: "L&L Products",
-        exp1Text: "Odpovědnost za zákaznickou podporu pro Českou a Slovenskou republiku.",
-        exp2Period: "2012 - 2015",
-        exp2Title: "Sales & Project Manager pro Škoda",
-        exp2Org: "L&L Products | Česko",
-        exp2Text: "Obchodní podpora, projektová koordinace a komerční řízení programů spojených se Škoda.",
-        exp3Period: "2015 - 2026",
-        exp3Title: "Customer Manager pro VW Group",
-        exp3Org: "L&L Products",
-        exp3Text: "Customer management pro účty skupiny VW s průběžnou obchodní a account podporou.",
-        exp4Period: "2026 - současnost",
-        exp4Title: "Freelance",
-        exp4Org: "Nezávisle",
-        exp4Text: "Nezávislá obchodní podpora, business development a koordinace zákaznických účtů pro průmyslové klienty.",
-        regionListTitle: "Styl spolupráce",
-        regionItem1: "Rychlý follow-up s jasnými dalšími kroky",
-        regionItem2: "Lokální kontinuita napříč českými a slovenskými jednáními",
-        regionItem3: "Strukturovaná podpora pro dlouhé B2B rozhodovací cykly",
-        regionLabel: "Trhy",
-        regionTitle: "Trhy.",
-        regionText:
-          "Zázemí ve střední Evropě, osobní práce napříč většinou Evropy a otevřenost pro vybrané worldwide projekty, když dává spolupráce smysl.",
-        process1Title: "Ceny",
-        process1Text: "vyjednávání cen a příprava rozpočtů",
-        process2Title: "Projekty",
-        process2Text: "koordinace mezi evropskými i globálními týmy",
-        process3Title: "Podpora",
-        process3Text: "market follow-up a kontinuita zákaznických účtů",
-        regionPoint1: "Obchodní most pro vztahy v ČR / SR",
-        regionPoint2: "Lokální kontext, tón komunikace a načasování",
-        regionPoint3: "Konzistentní zastoupení od prvního oslovení po dlouhodobou podporu",
-        contactLabel: "Kontakt",
-        contactTitle: "Kontakt.",
-        contactText: "Ozvat se můžete telefonicky, e-mailem nebo přes LinkedIn. Základna je v Česku, ale dostupnost je napříč Evropou a výběrově i worldwide.",
-        contactPrimary: "Napsat Petru Teplému",
-        contactSecondary: "Zpět nahoru",
-        contactNameLabel: "Jméno",
-        contactName: "Petr Teply",
-        contactPhoneLabel: "Telefon",
-        contactPhoneTitle: "Volat přímo",
-        contactPhone: "+420 602 696 279",
-        contactEmailLabel: "E-mail",
-        contactLinkedInLabel: "LinkedIn",
-        contactLinkedInTitle: "LinkedIn profil",
-        contactLinkedIn: "@petr-teply-63b69326",
-        contactAddressLabel: "Adresa",
-        contactAddress: "Legionářů 21, 695 01 Hodonín, Česká republika",
-        footerText: "Obchodní, klientská a projektová podpora napříč Evropou, s výběrovou worldwide spoluprací.",
-        footerBusinessLabel: "IČO:",
-        footerBusinessValue: "63446715",
-      };
-
-      const copyByLanguage = { en: englishCopy, cz: czechCopy };
       const siteHeader = document.querySelector(".site-header");
       const mobileHeaderMedia = window.matchMedia("(max-width: 920px)");
-
-      function setLanguage(lang) {
-        const safeLanguage = copyByLanguage[lang] ? lang : "en";
-        const strings = copyByLanguage[safeLanguage];
-
-        document.documentElement.lang = safeLanguage === "cz" ? "cs" : "en";
-        document.title = strings.pageTitle;
-        metaDescription.setAttribute("content", strings.metaDescription);
-        languageSwitch.setAttribute("aria-label", strings.languageLabel);
-
-        i18nNodes.forEach((node) => {
-          const key = node.dataset.i18n;
-          if (strings[key]) {
-            node.textContent = strings[key];
-          }
-        });
-
-        langButtons.forEach((button) => {
-          const active = button.dataset.lang === safeLanguage;
-          button.classList.toggle("is-active", active);
-          button.setAttribute("aria-pressed", String(active));
-        });
-
-        try {
-          window.localStorage.setItem("preferredLanguage", safeLanguage);
-        } catch (error) {
-          console.warn("Language preference could not be saved.", error);
-        }
-      }
-
-      langButtons.forEach((button) => {
-        button.addEventListener("click", () => setLanguage(button.dataset.lang));
-      });
-
-      try {
-        setLanguage(window.localStorage.getItem("preferredLanguage") || "en");
-      } catch (error) {
-        setLanguage("en");
-      }
 
       const revealNodes = document.querySelectorAll(".reveal");
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
