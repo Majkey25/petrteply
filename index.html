@@ -9,12 +9,6 @@
       content="Petr Teply is a business development and commercial support partner with 15+ years of experience. Built on automotive work with clients including Škoda, Seat, VW, and Audi, he supports industrial and commercial accounts across Europe and, selectively, worldwide."
     />
     <meta name="theme-color" content="#08111e" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -80,6 +74,15 @@
 
       a {
         color: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--accent-strong);
+        outline-offset: 4px;
+      }
+
+      .site-header.is-hidden:focus-within {
+        transform: none;
       }
 
       button {
@@ -1489,6 +1492,11 @@
       <div class="container footer-layout">
         <p data-i18n="footerText">Commercial, account, and project support across Europe, with selective worldwide collaboration.</p>
         <p><span data-i18n="footerBusinessLabel">Business ID:</span> <span data-i18n="footerBusinessValue">63446715</span></p>
+        <details>
+          <summary>Website privacy</summary>
+          <p>This site has no contact form, analytics, advertising cookies, or browser storage. Fonts and images load from this site. GitHub Pages hosts the site and receives technical request data, including your IP address. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+          <p>Calling, emailing, or opening LinkedIn uses the service you choose. For questions about personal data you send to Petr Teply, including access, correction, or deletion requests, contact <a href="mailto:petr.teply25@gmail.com">petr.teply25@gmail.com</a>. Please include only information needed for your enquiry.</p>
+        </details>
       </div>
     </footer>
     <script>
